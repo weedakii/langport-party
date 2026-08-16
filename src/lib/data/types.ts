@@ -149,4 +149,4 @@ export type NotificationItem = {
   read: boolean;
 };
 
-export type Session = { role: "student" | "admin"; studentId?: string; name: string; email: string };
+export type Session = { role: "student" | "admin"; studentId?: string | undefined; name: string; email: string };
