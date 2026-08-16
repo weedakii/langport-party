@@ -54,9 +54,9 @@ export type Registration = {
   currentLevel: string;
   program: string;
   preferredSchedule: string;
-  previousCourses?: string;
-  goal?: string;
-  source?: string;
+  previousCourses?: string | undefined;
+  goal?: string | undefined;
+  source?: string | undefined;
   createdAt: string;
   status: "new" | "contacted" | "enrolled";
 };
@@ -70,7 +70,7 @@ export type ClassSession = {
   time: string;
   status: "upcoming" | "completed" | "cancelled";
   link: string;
-  attendance?: "attended" | "absent" | "late";
+  attendance?: "attended" | "absent" | "late" | undefined;
 };
 
 export type Material = {
@@ -87,9 +87,9 @@ export type Assignment = {
   unit: string;
   dueDate: string;
   status: "pending" | "submitted" | "reviewed";
-  submission?: string;
-  feedback?: Bi | { en: string; ar: string };
-  grade?: string;
+  submission?: string | undefined;
+  feedback?: Bi | undefined;
+  grade?: string | undefined;
 };
 
 export type Announcement = {
@@ -126,7 +126,7 @@ export type PaymentRecord = {
   amount: number;
   method: string;
   date: string;
-  note?: string;
+  note?: string | undefined;
 };
 
 export type CourseGroup = {
