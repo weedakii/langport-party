@@ -20,16 +20,16 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Langport — Learn English, Build Confidence" },
+      { title: "Learn English, Build Confidence" },
       {
         name: "description",
         content:
           "CEFR-based English programs, placement testing, registration and a student portal for schedules, materials, assignments and progress.",
       },
-      { property: "og:title", content: "Langport — Learn English, Build Confidence" },
+      { property: "og:title", content: "Learn English, Build Confidence" },
       {
         property: "og:description",
-        content: "Find your level, choose a program and start learning with Langport.",
+        content: "CEFR-based English programs, placement testing, registration and a student portal for schedules, materials, assignments and progress.",
       },
     ],
   }),

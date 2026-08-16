@@ -79,20 +79,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Langport — English Programs & Student Portal" },
+      { title: "Learn English, Build Confidence" },
       {
         name: "description",
         content:
-          "Langport for Educational Services: CEFR-based English programs, placement testing, registration and a full student portal.",
+          "CEFR-based English programs, placement testing, registration and a student portal for schedules, materials, assignments and progress.",
       },
       { name: "author", content: "Langport" },
-      { property: "og:title", content: "Langport — English Programs & Student Portal" },
+      { property: "og:title", content: "Learn English, Build Confidence" },
       {
         property: "og:description",
-        content: "Learn English. Build Confidence. Find Your Voice.",
+        content: "CEFR-based English programs, placement testing, registration and a student portal for schedules, materials, assignments and progress.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Learn English, Build Confidence" },
+      { name: "twitter:description", content: "CEFR-based English programs, placement testing, registration and a student portal for schedules, materials, assignments and progress." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cbbdd28ea82964923b50160bdc3b6fa9/id-preview-3bd9182a--eb8ff01f-3a99-4639-9725-7fd4ab6235ae.lovable.app-1786919313892.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cbbdd28ea82964923b50160bdc3b6fa9/id-preview-3bd9182a--eb8ff01f-3a99-4639-9725-7fd4ab6235ae.lovable.app-1786919313892.png" },
     ],
     links: [
       {
