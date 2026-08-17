@@ -13,8 +13,13 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FindYourLevelRouteImport } from './routes/find-your-level'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PaymentRouteImport } from './routes/payment'
+import { Route as PortalRouteImport } from './routes/portal'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PortalIndexRouteImport } from './routes/portal/index'
 import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs/$slug'
 
@@ -38,15 +43,40 @@ const FindYourLevelRoute = FindYourLevelRouteImport.update({
   path: '/find-your-level',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalRoute,
 } as any)
 const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
   id: '/programs/',
@@ -64,9 +94,14 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/find-your-level': typeof FindYourLevelRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
+  '/portal': typeof PortalRouteWithChildren
   '/register': typeof RegisterRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/portal/': typeof PortalIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +109,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/find-your-level': typeof FindYourLevelRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
   '/register': typeof RegisterRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/portal': typeof PortalIndexRoute
   '/programs': typeof ProgramsIndexRoute
 }
 export interface FileRoutesById {
@@ -85,9 +124,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/find-your-level': typeof FindYourLevelRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/login': typeof LoginRoute
+  '/payment': typeof PaymentRoute
+  '/portal': typeof PortalRouteWithChildren
   '/register': typeof RegisterRoute
   '/programs/$slug': typeof ProgramsSlugRoute
+  '/portal/': typeof PortalIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRouteTypes {
@@ -97,9 +141,14 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/find-your-level'
+    | '/forgot-password'
     | '/how-it-works'
+    | '/login'
+    | '/payment'
+    | '/portal'
     | '/register'
     | '/programs/$slug'
+    | '/portal/'
     | '/programs/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,9 +156,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/find-your-level'
+    | '/forgot-password'
     | '/how-it-works'
+    | '/login'
+    | '/payment'
     | '/register'
     | '/programs/$slug'
+    | '/portal'
     | '/programs'
   id:
     | '__root__'
@@ -117,9 +170,14 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/find-your-level'
+    | '/forgot-password'
     | '/how-it-works'
+    | '/login'
+    | '/payment'
+    | '/portal'
     | '/register'
     | '/programs/$slug'
+    | '/portal/'
     | '/programs/'
   fileRoutesById: FileRoutesById
 }
@@ -128,7 +186,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FindYourLevelRoute: typeof FindYourLevelRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  LoginRoute: typeof LoginRoute
+  PaymentRoute: typeof PaymentRoute
+  PortalRoute: typeof PortalRouteWithChildren
   RegisterRoute: typeof RegisterRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
@@ -164,11 +226,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FindYourLevelRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/register': {
@@ -177,6 +267,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/portal/': {
+      id: '/portal/'
+      path: '/'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof PortalRoute
     }
     '/programs/': {
       id: '/programs/'
@@ -195,12 +292,27 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface PortalRouteChildren {
+  PortalIndexRoute: typeof PortalIndexRoute
+}
+
+const PortalRouteChildren: PortalRouteChildren = {
+  PortalIndexRoute: PortalIndexRoute,
+}
+
+const PortalRouteWithChildren =
+  PortalRoute._addFileChildren(PortalRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FindYourLevelRoute: FindYourLevelRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   HowItWorksRoute: HowItWorksRoute,
+  LoginRoute: LoginRoute,
+  PaymentRoute: PaymentRoute,
+  PortalRoute: PortalRouteWithChildren,
   RegisterRoute: RegisterRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,
